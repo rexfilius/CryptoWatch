@@ -2,12 +2,20 @@ package com.ifyosakwe.data.entities;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
+import androidx.room.Entity;
 import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+@Entity(tableName = "coins",
+        indices = {@Index("symbol"),
+                @Index("total_supply"),
+                @Index({"id", "symbol"})})
 public class CryptoCoinEntity {
 
     @JsonProperty("id")
@@ -43,10 +51,10 @@ public class CryptoCoinEntity {
     private String availableSupply;
 
     @JsonProperty("total_supply")
-    @ColumnInfo(name="total_supply")
+    @ColumnInfo(name = "total_supply")
     private String totalSupply;
 
-    @ColumnInfo(name="percent_change_1h")
+    @ColumnInfo(name = "percent_change_1h")
     @JsonProperty("percent_change_1h")
     private String percentChange1h;
 

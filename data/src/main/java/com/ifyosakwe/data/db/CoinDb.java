@@ -2,9 +2,13 @@ package com.ifyosakwe.data.db;
 
 import android.content.Context;
 
+import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.ifyosakwe.data.entities.CryptoCoinEntity;
+
+@Database(entities = {CryptoCoinEntity.class}, version = 1)
 public abstract class CoinDb extends RoomDatabase {
 
     static final String DATABASE_NAME = "market_data";

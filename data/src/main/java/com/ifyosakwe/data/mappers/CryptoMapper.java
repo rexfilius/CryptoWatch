@@ -11,6 +11,8 @@ import java.util.List;
 
 public class CryptoMapper extends ObjectMapper {
 
+    // TODO: "https://files.coinmarketcap.com/static/img/coins/128x128/%s.png"
+    // confirm the URL above for CRYPTO_URL_PATH
     private final String CRYPTO_URL_PATH = "";
 
     public ArrayList<CryptoCoinEntity> mapJsonToEntity(String jsonStr) {

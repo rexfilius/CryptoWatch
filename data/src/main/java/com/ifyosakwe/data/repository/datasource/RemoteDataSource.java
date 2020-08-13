@@ -18,6 +18,8 @@ public class RemoteDataSource implements DataSource<List<CryptoCoinEntity>> {
 
     private static final String TAG = RemoteDataSource.class.getSimpleName();
 
+    // TODO: "https://api.coinmarketcap.com/v1/ticker/?limit=100"
+    // confirm the URL above for ENDPOINT_FETCH_CRYPTO_DATA
     public final String ENDPOINT_FETCH_CRYPTO_DATA = "";
     private final RequestQueue mQueue;
     private final CryptoMapper mObjMapper;
@@ -48,9 +50,7 @@ public class RemoteDataSource implements DataSource<List<CryptoCoinEntity>> {
                                     mObjMapper.mapJsonToEntity(response.toString());
                             mDataApi.setValue(data);
                         },
-                        error -> {
-                            mError.setValue(error.toString());
-                        }
+                        error -> mError.setValue(error.toString())
                 );
         mQueue.add(jsonObjRequest);
     }
