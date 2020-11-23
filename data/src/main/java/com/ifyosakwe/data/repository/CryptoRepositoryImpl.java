@@ -1,6 +1,7 @@
 package com.ifyosakwe.data.repository;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.VisibleForTesting;
 import androidx.lifecycle.LiveData;
@@ -38,7 +39,9 @@ public class CryptoRepositoryImpl implements CryptoRepository {
                 mExecutorService.execute(new Runnable() {
                     @Override
                     public void run() {
-                        CryptoRepositoryImpl.this.mLocalDataSource.writeData(entities);
+                        Log.d(TAG, "mDataMerger\tmRemoteDataSource onChange invoked");
+                        //CryptoRepositoryImpl.this.
+                        mLocalDataSource.writeData(entities);
                         List<CoinModel> list = mCryptoMapper.mapEntityToModel(entities);
                         mDataMerger.postValue(list);
                     }
@@ -49,6 +52,7 @@ public class CryptoRepositoryImpl implements CryptoRepository {
                 mExecutorService.execute(new Runnable() {
                     @Override
                     public void run() {
+                        Log.d(TAG, "mDataMerger\tmLocalDataSource onChange invoked");
                         List<CoinModel> models = mCryptoMapper.mapEntityToModel(entities);
                         mDataMerger.postValue(models);
                     }
@@ -60,7 +64,9 @@ public class CryptoRepositoryImpl implements CryptoRepository {
                     mExecutorService.execute(new Runnable() {
                         @Override
                         public void run() {
-                            List<CryptoCoinEntity> entities = (CryptoRepositoryImpl.this.mLocalDataSource.getAllCoins());
+                            //CryptoRepositoryImpl.this.
+                            List<CryptoCoinEntity> entities =
+                                    (mLocalDataSource.getAllCoins());
                             mDataMerger.postValue(mCryptoMapper.mapEntityToModel(entities));
                         }
                     });

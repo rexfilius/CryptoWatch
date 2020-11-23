@@ -54,4 +54,5 @@ public class RemoteDataSource implements DataSource<List<CryptoCoinEntity>> {
                 );
         mQueue.add(jsonObjRequest);
     }
+
 }

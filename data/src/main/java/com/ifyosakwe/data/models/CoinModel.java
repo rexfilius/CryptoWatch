@@ -18,4 +18,5 @@ public class CoinModel {
         this.volume24H = volume24H;
         this.marketCap = marketCap;
     }
+
 }

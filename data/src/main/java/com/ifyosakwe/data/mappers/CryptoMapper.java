@@ -1,5 +1,7 @@
 package com.ifyosakwe.data.mappers;
 
+import androidx.annotation.NonNull;
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,6 +27,7 @@ public class CryptoMapper extends ObjectMapper {
         return data;
     }
 
+    @NonNull
     public List<CoinModel> mapEntityToModel(List<CryptoCoinEntity> data) {
         final ArrayList<CoinModel> listData = new ArrayList<>();
         CryptoCoinEntity entity;
