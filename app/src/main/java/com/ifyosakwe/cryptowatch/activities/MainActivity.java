@@ -1,8 +1,10 @@
-package com.ifyosakwe.cryptowatch;
+package com.ifyosakwe.cryptowatch.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.ifyosakwe.cryptowatch.R;
 
 public class MainActivity extends AppCompatActivity {
 
