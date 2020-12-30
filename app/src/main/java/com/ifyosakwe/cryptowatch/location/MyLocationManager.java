@@ -99,4 +99,5 @@ public class MyLocationManager implements LifecycleObserver {
                 .build();
         mGoogleApiClient.connect();
     }
+
 }
