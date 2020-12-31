@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ifyosakwe.cryptowatch.R;
@@ -38,4 +39,5 @@ public class Divider extends RecyclerView.ItemDecoration {
             mDivider.draw(canvas);
         }
     }
+
 }
